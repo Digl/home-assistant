@@ -125,7 +125,7 @@ class ScrapeSensor(Entity):
             _LOGGER.debug(value)
         except IndexError:
             _LOGGER.error("Unable to extract data from HTML")
-            return
+            value = "Unable to extract data from HTML"
 
         if self._value_template is not None:
             self._state = self._value_template.render_with_possible_json_value(
